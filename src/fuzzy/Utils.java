@@ -1,51 +1,48 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package fuzzy;
 
 import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
 
 /**
- *
  * @author rwietter
  */
 public class Utils {
 
-    protected HashMap<String, HashMap<String, Double>> height;
-    protected HashMap<String, HashMap<String, Double>> weight;
+    protected Map<String, Map<String, Double>> height;
+    protected Map<String, Map<String, Double>> weight;
 
-    protected HashMap<String, Double> leve;
-    protected HashMap<String, Double> normal;
-    protected HashMap<String, Double> pesado;
+    protected Map<String, Double> leve;
+    protected Map<String, Double> normal;
+    protected Map<String, Double> pesado;
 
-    protected HashMap<String, Double> baixo;
-    protected HashMap<String, Double> medio;
-    protected HashMap<String, Double> alto;
+    protected Map<String, Double> baixo;
+    protected Map<String, Double> medio;
+    protected Map<String, Double> alto;
 
-    protected HashMap<Double, Double> poucoCalorica;
-    protected HashMap<Double, Double> caloriaNormal;
-    protected HashMap<Double, Double> calorica;
+    protected Map<Double, Double> PC;
+    protected Map<Double, Double> NN;
+    protected Map<Double, Double> CC;
 
-    protected HashMap<String, HashMap<Double, Double>> outputVariables;
+    protected Map<String, Map<Double, Double>> outputVariables;
 
     public Utils() {
-        this.leve = new HashMap<String, Double>();
-        this.normal = new HashMap<String, Double>();
-        this.pesado = new HashMap<String, Double>();
+        this.leve = new Hashtable<String, Double>();
+        this.normal = new Hashtable<String, Double>();
+        this.pesado = new Hashtable<String, Double>();
 
-        this.baixo = new HashMap<String, Double>();
-        this.medio = new HashMap<String, Double>();
-        this.alto = new HashMap<String, Double>();
+        this.baixo = new Hashtable<String, Double>();
+        this.medio = new Hashtable<String, Double>();
+        this.alto = new Hashtable<String, Double>();
 
-        this.height = new HashMap<String, HashMap<String, Double>>();
-        this.weight = new HashMap<String, HashMap<String, Double>>();
+        this.height = new Hashtable<String, Map<String, Double>>();
+        this.weight = new Hashtable<String, Map<String, Double>>();
 
-        this.poucoCalorica = new HashMap<Double, Double>();
-        this.caloriaNormal = new HashMap<Double, Double>();
-        this.calorica = new HashMap<Double, Double>();
+        this.PC = new Hashtable<Double, Double>();
+        this.NN = new Hashtable<Double, Double>();
+        this.CC = new Hashtable<Double, Double>();
 
-        this.outputVariables = new HashMap<String, HashMap<Double, Double>>();
+        this.outputVariables = new Hashtable<String, Map<Double, Double>>();
     }
 
     public void printData() {

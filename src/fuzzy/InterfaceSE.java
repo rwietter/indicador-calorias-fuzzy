@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package fuzzy;
 
 import java.awt.Color;
@@ -9,7 +5,6 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 /**
- *
  * @author rwietter
  */
 public class InterfaceSE extends javax.swing.JFrame {

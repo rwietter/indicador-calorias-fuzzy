@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package fuzzy;
 
 import java.util.HashMap;
-import fuzzy.IBaseConhecimento;
+import java.util.Hashtable;
+import java.util.Map;
 
 /**
- *
  * @author rwietter
  */
 public class BaseConhecimento extends Utils implements IBaseConhecimento {
@@ -17,11 +13,12 @@ public class BaseConhecimento extends Utils implements IBaseConhecimento {
         super();
         this.setWeight();
         this.setHeight();
-        this.setInitialVariables();
+        this.fuzzification();
         this.setOutputVariables();
     }
 
-    public void setInitialVariables() {
+    // 1. Faz a fuzificação das entradas para PESO E ALTURA
+    public void fuzzification() {
         super.weight.put("LEVE", super.leve);
         super.weight.put("NORMAL", super.normal);
         super.weight.put("PESADO", super.pesado);
@@ -92,47 +89,52 @@ public class BaseConhecimento extends Utils implements IBaseConhecimento {
     // --------------------------------------------------------------
     // ------------------------ OUTPUT SET --------------------------
     // --------------------------------------------------------------
+    // Fuzificação das saídas em calorias
     public void setOutputVariables() {
-        super.poucoCalorica.put(900.0, 1.0);
-        super.poucoCalorica.put(1000.0, 0.0);
-        super.poucoCalorica.put(1100.0, 0.0);
-        super.poucoCalorica.put(1200.0, 0.0);
-        super.poucoCalorica.put(1300.0, 0.0);
-        super.poucoCalorica.put(1400.0, 0.0);
-        super.poucoCalorica.put(1500.0, 0.0);
+        super.PC.put(900.0, 1.0);
+        super.PC.put(1000.0, 0.0);
+        super.PC.put(1100.0, 0.0);
+        super.PC.put(1200.0, 0.0);
+        super.PC.put(1300.0, 0.0);
+        super.PC.put(1400.0, 0.0);
+        super.PC.put(1500.0, 0.0);
 
-        super.caloriaNormal.put(900.0, 0.0);
-        super.caloriaNormal.put(1000.0, 0.0);
-        super.caloriaNormal.put(1100.0, 0.5);
-        super.caloriaNormal.put(1200.0, 1.0);
-        super.caloriaNormal.put(1300.0, 0.5);
-        super.caloriaNormal.put(1400.0, 0.0);
-        super.caloriaNormal.put(1500.0, 0.0);
+        super.NN.put(900.0, 0.0);
+        super.NN.put(1000.0, 0.0);
+        super.NN.put(1100.0, 0.5);
+        super.NN.put(1200.0, 1.0);
+        super.NN.put(1300.0, 0.5);
+        super.NN.put(1400.0, 0.0);
+        super.NN.put(1500.0, 0.0);
 
-        super.calorica.put(900.0, 0.0);
-        super.calorica.put(1000.0, 0.0);
-        super.calorica.put(1100.0, 0.0);
-        super.calorica.put(1200.0, 0.0);
-        super.calorica.put(1300.0, 0.0);
-        super.calorica.put(1400.0, 0.5);
-        super.calorica.put(1500.0, 1.0);
+        super.CC.put(900.0, 0.0);
+        super.CC.put(1000.0, 0.0);
+        super.CC.put(1100.0, 0.0);
+        super.CC.put(1200.0, 0.0);
+        super.CC.put(1300.0, 0.0);
+        super.CC.put(1400.0, 0.5);
+        super.CC.put(1500.0, 1.0);
 
         /**
-         * PC => Pouco Calórica NC => Caloria Normal CC => Calórica
+         * PC => Pouco Calórica
+         * NC => Caloria Normal
+         * CC => Calórica
          */
-        super.outputVariables.put("PC", super.poucoCalorica);
-        super.outputVariables.put("NN", super.caloriaNormal);
-        super.outputVariables.put("CC", super.calorica);
+        super.outputVariables.put("PC", super.PC);
+        super.outputVariables.put("NN", super.NN);
+        super.outputVariables.put("CC", super.CC);
     }
 
     // --------------------------------------------------------------
     // ------------------------ FUZZY RULES -------------------------
     // --------------------------------------------------------------
     /**
-     * PC => Pouco Calórica NC => Caloria Normal CC => Calórica
+     * PC => Pouco Calórica
+     * NC => Caloria Normal
+     * CC => Calórica
      */
+    // 1. Regras do sistema fuzzy
     public String fuzzyRules(String altura, String peso) {
-        System.out.println("P: " + peso + " A: " + altura);
         switch (peso) {
             case "LEVE":
                 switch (altura) {
@@ -166,21 +168,21 @@ public class BaseConhecimento extends Utils implements IBaseConhecimento {
                 }
             default:
         }
-        return "unknow";
+        return "NULL";
     }
 
     // --------------------------------------------------------------
     // --------------------------- GETTERS --------------------------
     // --------------------------------------------------------------
-    public HashMap<String, HashMap<String, Double>> getHeight() {
+    public Map<String, Map<String, Double>> getHeight() {
         return super.height;
     }
 
-    public HashMap<String, HashMap<String, Double>> getWeight() {
+    public Map<String, Map<String, Double>> getWeight() {
         return super.weight;
     }
 
-    public HashMap<String, HashMap<Double, Double>> getVariaveisSaida() {
+    public Map<String, Map<Double, Double>> getVariaveisSaida() {
         return super.outputVariables;
     }
 }
