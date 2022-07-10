@@ -1,7 +1,7 @@
 package fuzzy;
 
 /**
- * @author rwietter
+ * @author rwietter (Mauricio Witter)
  */
 public class HelloHost extends javax.swing.JFrame {
 

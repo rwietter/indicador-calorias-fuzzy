@@ -1,7 +1,7 @@
 package fuzzy;
 
 /**
- * @author rwietter
+ * @author rwietter (Mauricio Witter)
  */
 public interface IBaseConhecimento {
 
@@ -11,7 +11,7 @@ public interface IBaseConhecimento {
 
     public void setHeight();
 
-    public void setOutputVariables();
+    public void setCalories();
 
     public String fuzzyRules(String n1, String n2);
 }

@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 /**
- * @author rwietter
+ * @author rwietter (Mauricio Witter)
  */
 public class InterfaceSE extends javax.swing.JFrame {
 
@@ -286,12 +286,12 @@ public class InterfaceSE extends javax.swing.JFrame {
 
         String height = this.jTF_height.getText();
         String weight = this.weight.getText();
-        
+
         this.check(height, weight);
 
         this.inferencia.fuzzify(height, weight);
 
-        double S = this.inferencia.getS();
+        double S = this.baseConhecimento.getInferenceResult();
         String result = String.format("%.0f", S);
         this.showResults(result);
     }//GEN-LAST:event_SUBMITActionPerformed
@@ -301,7 +301,7 @@ public class InterfaceSE extends javax.swing.JFrame {
         String message = this.name + ", você pode ingerir diariamente \n" + space + R + " calorias.";
         this.jTFResultado.setText(R + " calorias");
 
-        JOptionPane.showMessageDialog(null, message, "SetColor", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, message);
     }
 
     public static void main(String args[]) {
